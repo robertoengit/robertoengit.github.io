@@ -1,26 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <title>Mapa Interactivo de Querétaro</title>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celebración de Aniversario</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>¡Feliz Aniversario!</h1>
-        <div class="heart-container">
-            <div class="heart"></div>
-            <div class="heart"></div>
-            <div class="heart"></div>
-        </div>
-        <p>Hoy celebramos <span class="years">4</span> años juntos.</p>
-        <div class="chart">
-            <div class="bar" style="height: 25%;">1 Año</div>
-            <div class="bar" style="height: 50%;">2 Años</div>
-            <div class="bar" style="height: 75%;">3 Años</div>
-            <div class="bar" style="height: 100%;">4 Años</div>
-        </div>
-    </div>
+    <h1>Ruta Cultural por el Centro Histórico de Querétaro</h1>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inicializa el mapa
+        var map = L.map('map').setView([20.5931, -100.3921], 14);
+
+        // Capa de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Añadir puntos de interés
+        var puntosDeInteres = [
+            {
+                "nombre": "Plaza de Armas",
+                "descripcion": "Introducción histórica a la Plaza de Armas.",
+                "latitud": 20.5931,
+                "longitud": -100.3921
+            },
+            {
+                "nombre": "Casa de la Corregidora",
+                "descripcion": "Historia de la Casa de la Corregidora y su papel en la Independencia de México.",
+                "latitud": 20.5941,
+                "longitud": -100.3890
+            },
+            // Añade más puntos aquí
+        ];
+
+        puntosDeInteres.forEach(function(punto) {
+            var marker = L.marker([punto.latitud, punto.longitud]).addTo(map);
+            marker.bindPopup("<b>" + punto.nombre + "</b><br>" + punto.descripcion);
+        });
+    </script>
 </body>
 </html>
