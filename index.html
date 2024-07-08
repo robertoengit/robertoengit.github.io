@@ -1,89 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mapa Interactivo de Querétaro</title>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <title>Anniversary Celebration</title>
     <style>
-        #map {
-            height: 600px;
-            width: 100%;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #ffa07a;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fffaf0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in;
+        }
+        h1 {
+            color: #ff6347;
+            margin: 0;
+            animation: textGlow 1.5s infinite alternate;
+        }
+        p {
+            color: #4682b4;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffa07a;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff6347;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px #ff6347; }
+            to { text-shadow: 0 0 20px #ff4500; }
         }
     </style>
 </head>
 <body>
-    <h1>Ruta Cultural por el Centro Histórico de Querétaro</h1>
-    <div id="map"></div>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <div class="container">
+        <h1>Happy Anniversary!</h1>
+        <p>Celebrating 4 wonderful years together.</p>
+        <button onclick="showMessage()">Click me</button>
+        <p id="hiddenMessage" style="display:none; color: #32cd32;">I love you more each day!</p>
+    </div>
     <script>
-        // Inicializa el mapa
-        var map = L.map('map').setView([20.5931, -100.3921], 14);
-
-        // Capa de OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        // Añadir puntos de interés
-        var puntosDeInteres = [
-            {
-                "nombre": "Plaza de Armas",
-                "descripcion": "Introducción histórica a la Plaza de Armas.",
-                "latitud": 20.5931,
-                "longitud": -100.3921
-            },
-            {
-                "nombre": "Casa de la Corregidora",
-                "descripcion": "Historia de la Casa de la Corregidora y su papel en la Independencia de México.",
-                "latitud": 20.5941,
-                "longitud": -100.3890
-            },
-            {
-                "nombre": "Templo de San Francisco",
-                "descripcion": "Arquitectura y historia del Templo de San Francisco.",
-                "latitud": 20.5953,
-                "longitud": -100.3882
-            },
-            {
-                "nombre": "Jardín Zenea",
-                "descripcion": "Historia y relevancia del Jardín Zenea.",
-                "latitud": 20.5935,
-                "longitud": -100.3875
-            },
-            {
-                "nombre": "Teatro de la República",
-                "descripcion": "Importancia histórica del Teatro de la República.",
-                "latitud": 20.5966,
-                "longitud": -100.3848
-            },
-            {
-                "nombre": "Templo de Santa Rosa de Viterbo",
-                "descripcion": "Historia y arquitectura del Templo de Santa Rosa de Viterbo.",
-                "latitud": 20.5963,
-                "longitud": -100.3833
-            },
-            {
-                "nombre": "Museo Regional de Querétaro",
-                "descripcion": "Resumen de la ruta y recomendaciones para explorar el museo.",
-                "latitud": 20.5937,
-                "longitud": -100.3925
-            }
-        ];
-
-        // Añadir marcadores y trazar la ruta
-        var puntosLatLng = puntosDeInteres.map(function(punto) {
-            var marker = L.marker([punto.latitud, punto.longitud]).addTo(map);
-            marker.bindPopup("<b>" + punto.nombre + "</b><br>" + punto.descripcion);
-            return [punto.latitud, punto.longitud];
-        });
-
-        // Crear la ruta y añadirla al mapa
-        var ruta = L.polyline(puntosLatLng, {color: 'blue'}).addTo(map);
-
-        // Ajustar la vista del mapa para mostrar toda la ruta
-        map.fitBounds(ruta.getBounds());
+        function showMessage() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+        }
     </script>
 </body>
 </html>
+
 
