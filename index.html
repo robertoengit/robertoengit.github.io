@@ -23,34 +23,18 @@
             height: 100%;
             z-index: -1;
         }
-        .background .shape {
+        .shape {
             position: absolute;
-            background-color: #8B4513; /* Café */
             border-radius: 50%;
             opacity: 0.7;
             animation: float 10s infinite ease-in-out alternate;
         }
-        .background .shape:nth-child(1) {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            left: 10%;
-            animation-duration: 8s;
-        }
-        .background .shape:nth-child(2) {
-            width: 300px;
-            height: 300px;
-            top: 30%;
-            left: 50%;
-            animation-duration: 12s;
-        }
-        .background .shape:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            top: 70%;
-            left: 70%;
-            animation-duration: 10s;
-        }
+        .shape1 { background-color: #8B4513; width: 200px; height: 200px; top: 10%; left: 10%; animation-duration: 8s; }
+        .shape2 { background-color: #B22222; width: 300px; height: 300px; top: 30%; left: 50%; animation-duration: 12s; }
+        .shape3 { background-color: #CD5C5C; width: 150px; height: 150px; top: 70%; left: 70%; animation-duration: 10s; }
+        .shape4 { background-color: #FF6347; width: 250px; height: 250px; top: 20%; left: 75%; animation-duration: 14s; }
+        .shape5 { background-color: #FF4500; width: 100px; height: 100px; top: 80%; left: 20%; animation-duration: 16s; }
+        .shape6 { background-color: #8B0000; width: 200px; height: 200px; top: 40%; left: 15%; animation-duration: 18s; }
         @keyframes float {
             0% { transform: translateY(0); }
             100% { transform: translateY(-20px); }
@@ -101,9 +85,12 @@
 </head>
 <body>
     <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+        <div class="shape shape5"></div>
+        <div class="shape shape6"></div>
     </div>
     <div class="container">
         <h1>¡Feliz Aniversario, Karla!</h1>
