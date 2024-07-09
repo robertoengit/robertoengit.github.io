@@ -8,6 +8,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -16,6 +17,7 @@
             margin: 0;
             overflow: hidden;
             position: relative;
+            text-align: center;
         }
         .background {
             position: absolute;
@@ -27,27 +29,18 @@
         }
         .floating-text {
             color: #2e8b57; /* Verde */
-            font-size: 3em;
+            font-size: 2.5em;
             text-shadow: 0 0 10px #2e8b57, 0 0 20px #556b2f;
             animation: float 4s ease-in-out infinite;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes textGlow {
-            from { text-shadow: 0 0 10px #2e8b57; }
-            to { text-shadow: 0 0 20px #556b2f; }
+        .additional-message {
+            color: #8B4513; /* Café */
+            font-size: 1.2em;
+            margin-top: 20px;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
-        }
-        .hidden-message {
-            display: none;
-            color: #8B4513; /* Café */
-            font-size: 18px;
-            animation: fadeIn 2s ease-in;
         }
     </style>
 </head>
@@ -97,12 +90,8 @@
     <div class="floating-text">
         ¡Feliz Aniversario, Pechochita!
     </div>
-    <button onclick="showMessage()">Haz clic aquí</button>
-    <p id="hiddenMessage" class="hidden-message">¡Te amo más cada día, Karla!</p>
-    <script>
-        function showMessage() {
-            document.getElementById('hiddenMessage').style.display = 'block';
-        }
-    </script>
+    <div class="additional-message">
+        Gracias por estos 4 años, han sido los mejores de mi vida. Gracias por quererme tanto. Te amo preciosa.
+    </div>
 </body>
 </html>
