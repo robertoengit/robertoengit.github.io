@@ -25,39 +25,11 @@
             height: 100%;
             z-index: -1;
         }
-        .container {
-            text-align: center;
-            border: 2px solid #8B4513; /* Café */
-            padding: 20px;
-            border-radius: 10px;
-            background-color: rgba(255, 250, 240, 0.9);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 2s ease-in;
-            position: relative;
-            z-index: 1;
-        }
-        h1 {
+        .floating-text {
             color: #2e8b57; /* Verde */
-            margin: 0;
-            animation: textGlow 1.5s infinite alternate;
-        }
-        p {
-            color: #8B4513; /* Café */
-            font-size: 18px;
-        }
-        button {
-            padding: 10px 20px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #2e8b57; /* Verde */
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #556b2f; /* Verde más oscuro */
+            font-size: 3em;
+            text-shadow: 0 0 10px #2e8b57, 0 0 20px #556b2f;
+            animation: float 4s ease-in-out infinite;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -66,6 +38,16 @@
         @keyframes textGlow {
             from { text-shadow: 0 0 10px #2e8b57; }
             to { text-shadow: 0 0 20px #556b2f; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .hidden-message {
+            display: none;
+            color: #8B4513; /* Café */
+            font-size: 18px;
+            animation: fadeIn 2s ease-in;
         }
     </style>
 </head>
@@ -112,12 +94,11 @@
             }
         </style>
     </css-doodle>
-    <div class="container">
-        <h1>¡Feliz Aniversario, Karla!</h1>
-        <p>Celebrando 4 maravillosos años juntos, Roberto y Karla.</p>
-        <button onclick="showMessage()">Haz clic aquí</button>
-        <p id="hiddenMessage" style="display:none; color: #8B4513;">¡Te amo más cada día, Karla!</p>
+    <div class="floating-text">
+        ¡Feliz Aniversario, Pechochita!
     </div>
+    <button onclick="showMessage()">Haz clic aquí</button>
+    <p id="hiddenMessage" class="hidden-message">¡Te amo más cada día, Karla!</p>
     <script>
         function showMessage() {
             document.getElementById('hiddenMessage').style.display = 'block';
