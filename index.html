@@ -36,7 +36,9 @@
             font-style: normal;
             color: #f6416c; /* Rosa vibrante */
             font-size: 3em;
-            text-shadow: 0 0 10px #f6416c, 0 0 20px #ffde7d; /* Sombra de color rosa y amarillo */
+            text-shadow: 
+                0 0 10px rgba(0, 0, 0, 0.5), /* Sombra negra más oscura */
+                0 0 20px rgba(0, 0, 0, 0.5); /* Sombra negra más oscura */
             animation: float 4s ease-in-out infinite;
         }
         .additional-message {
@@ -47,6 +49,9 @@
             font-size: 1.5em;
             margin-top: 20px;
             white-space: pre-line;
+            text-shadow: 
+                0 0 10px rgba(0, 0, 0, 0.5), /* Sombra negra más oscura */
+                0 0 20px rgba(0, 0, 0, 0.5); /* Sombra negra más oscura */
         }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
